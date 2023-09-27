@@ -1,92 +1,122 @@
-# Lloyds Dundee Software
+# Program Project
 
+- [Program Project](#phase-3---program-project)
+  - [Introduction](#introduction)
+  - [The Estate Agent Case Study](#the-estate-agent-case-study)
+    - [Feature: Manage Buyer](#feature-manage-buyer)
+    - [Feature: Manage Seller](#feature-manage-seller)
+    - [Feature: Manage Property](#feature-manage-property)
+    - [Feature: Manage Bookings](#feature-manage-bookings)
+  - [Minimal Viable Product](#minimal-viable-product)
 
+**Reference Implementations (Model Answers)**
 
-## Getting started
+- [Project 1 - WEB Application](project1-react/README.md)
+- [Project 2 - C# MicroService](project2-c#/README.md)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+---
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Introduction
+The program is designed to give experience of the Software Development Life Cycle (SDLC) from Development, Build to Deploy.  It uses a case study for an Estate Agent Management application that will be develope over a series of incremental projects that build on top of knowledge gain from each learning module.  Each project is analogous to a Sprint.
 
-## Add your files
+![](./docs/images/project-plan.png)
+<figcaption><b>Fig.1 - Project Plan</b></figcaption>
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+---
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/qa1322911/lloyds-dundee-software.git
-git branch -M main
-git push -uf origin main
-```
+**Project 0**
+This is equivalent of the set-up sprint and will be part of the GIT exercises by setting up a GIT repository that will be used by rest of the projects for source and version management.
 
-## Integrate with your tools
+**Project 1**
+Create Application Frontend 
 
-- [ ] [Set up project integrations](https://gitlab.com/qa1322911/lloyds-dundee-software/-/settings/integrations)
+**Project 2**
+Design and create Database Schema (incorporated as part of project 3)
 
-## Collaborate with your team
+**Project 3**
+Create C# Microservice and link to front end
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+---
 
-## Test and Deploy
+## The Estate Agent Case Study
+The project revolves around an Estate Agent Management System with the following Features:
 
-Use the built-in continuous integration in GitLab.
+### Feature: Manage Buyer<span/>
+>**Scenario: Register Buyer**   
+Given the new buyer with the given first name and surname does not exist   
+When a create buyer request is received with the given first name and surname   
+Then a new buyer record is created with a buyer ID   
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### Feature: Manage Seller<span/>
+>**Scenario: Register Seller**   
+Given a seller with the given first name and surname does not exist   
+When a create seller request is received with the given first name and surname   
+Then a new seller record is created with a seller ID   
 
-***
+### Feature: Manage Property
+**NOTE**: A property can have the following status:  FORSALE, SOLD, WITHDRAWN
+>**Scenario: Add Property**   
+Given a seller exists for the new property   
+When a create property request for the given seller is received   
+Then the property is added to the catalogue   
+Then the property status is set to FORSALE   
 
-# Editing this README
+>**Scenario: Find properties**   
+When a Find properties request is received   
+Then a list of properties with the corresponding criteria is shown   
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+>**Scenario: Withdraw Property that is FORSALE**   
+Given The required Property exists   
+Given The required Property is FORSALE   
+When a Withdrawn property request is received   
+Then property status is changed to WITHDRAWN   
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+>**Scenario: Resubmit Property that has been WITHDRAWN**   
+Given The required Property exists   
+Given The required Property has been WITHDRAWN   
+When a Resubmit property request is received   
+Then property status is changed to FORSALE   
 
-## Name
-Choose a self-explaining name for your project.
+>**Scenario: Amend property details**   
+Given The required Property exists   
+Given The required Property is FORSALE   
+When an Amend property request is received   
+Then property details are updated   
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+### Feature: Manage Bookings
+**Note**:  Viewing slot is every hour on the hour between 8am to 5pm every day including weekends and holidays
+>**Scenario: Make booking with Slot available**   
+Given no active booking exists for the desired time slot for the property   
+Given the property status is FORSALE   
+Given the buyer is registered   
+When a viewing is requested   
+Then a booking is created for the buyer for the property at the given time slot   
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+>**Scenario: Make Booking - Time Slot not available**   
+Given a booking already exists for the required timeslot for the given property   
+When a viewing is requested is made for that time slot   
+Then an error is shown to the user   
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+>**Scenario: Cancel Booking**   
+Given a booking exists   
+When a cancel booking request is made   
+Then the booking is removed   
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+---
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+## Minimal Viable Product
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+- **Manage Seller**
+  - Register a new seller
+  - Display all sellers
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+- **Manage Properties**
+  - Add properties
+  - Display all properties
+  - Find and display properties with given search criteria on price, bedrooms, bathroom and garden
+  - Withdraw a property
+  - Resubmit a property
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+- **Manage Buyer**
+    - Register new buyer
+    - Display all buyers
