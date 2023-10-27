@@ -48,7 +48,7 @@ You'll need to design the database schema for Estate Agent Application.  We can 
 
 Figure 2 below shows the database schema after normalization:
 
-![](./docs/images/database-schema.png){width=800px}
+![](../../docs/images/Database-Schema.png){width=800px}
 <figcaption><b>Fig.2 - Database Schema</b></figcaption>
 
 ### Database Script
