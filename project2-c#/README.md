@@ -14,7 +14,7 @@
 
 Project 2 is concerned with a C# ASP.NET MVC microservice in which you will need implement the <a href="docs/endpoints.md">REST API</a> as defined for Project 1.
 
-![](./docs/images/projects-boundary.png){width=500px}
+![](././docs/images/projects-boundary.png){width=500px}
 <figcaption><b>Fig.1 - Project Boundaries </b></figcaption>
 
 ---
