@@ -52,6 +52,7 @@ Figure 2 below shows the database schema after normalization:
 <figcaption><b>Fig.2 - Database Schema</b></figcaption>
 
 ### Database Script
+```sql
 USE [master]
 GO
 
@@ -165,7 +166,4 @@ REFERENCES [dbo].[buyer] ([BUYER_ID])
 GO
 ALTER TABLE [dbo].[property] CHECK CONSTRAINT [property$property_ibfk_2]
 GO
-
-
-
 ```
