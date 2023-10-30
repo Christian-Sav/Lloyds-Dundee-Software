@@ -5,9 +5,9 @@
   - [Tasks](#tasks)
   - [Database Design](#database-design)
 
-* [Development Environment & Setup](./docs/development-environment.md)
-* [API Design](./docs/endpoints.md)
-* [Application Archtecture](./docs/architecture.md)
+* [Development Environment & Setup](../../project2-c#/docs/development-environment.md)
+* [API Design](../../project2-c#/docs/endpoints.md)
+* [Application Archtecture](../../project2-c#/docs/architecture.md)
 ---
 
 ## Introduction
