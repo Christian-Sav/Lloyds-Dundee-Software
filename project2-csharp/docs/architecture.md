@@ -3,7 +3,7 @@
 
 <!-- TOC -->
   * [Overview](#overview)
-  * [JSON <-> Entity Mapping](#json-----entity-mapping)
+  * [JSON <-> Entity Mapping](#json<->entity mapping)
 <!-- TOC -->
 ---
 ## Overview
