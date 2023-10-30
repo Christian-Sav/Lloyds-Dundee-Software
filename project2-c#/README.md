@@ -7,7 +7,7 @@
 
 * [Development Environment & Setup](project2-c#/docs/development-environment.md)
 * [API Design](project2-c#/docs/endpoints.md)
-* [Application Archtecture](docs/architecture.md)
+* [Application Archtecture](../docs/architecture.md)
 ---
 
 ## Introduction
