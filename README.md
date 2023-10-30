@@ -11,8 +11,8 @@
 
 **Reference Implementations (Model Answers)**
 
-- [Project 1 - WEB Application](project1-react/README.md)
-- [Project 2 - C# MicroService](project2-c#/README.md)
+- [Project 1 - WEB Application](../project1-react/README.md)
+- [Project 2 - C# MicroService](../project2-c#/README.md)
 
 ---
 
