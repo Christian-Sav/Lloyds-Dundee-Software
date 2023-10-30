@@ -1,4 +1,4 @@
-**&larr; [Back to Project 1 README](../README.md)**
+**&larr; [Back to Project 2 README](../project2-csharp/README.md)**
 # Development Environment and Setup
 
 <!-- TOC -->
