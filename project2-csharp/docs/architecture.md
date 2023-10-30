@@ -36,6 +36,6 @@ EAAutoMapper.cs:
         }
     }
 ```
-![](./images/mapping.png){width=500px}
+![](./images/Mapping.png){width=500px}
 <figcaption><b>Fig.2 - JSON <-> Entity Mapping </b></figcaption>
 
