@@ -281,7 +281,7 @@ This sections provides a reference design for the RESTful API for the Estate Age
     "garden" : 0,
     "price" : 150000.40,
     "status" : "FORSALE",
-    "seller" : {"id" : 4}
+    "seller" : {"id" : 1}
 }
 </pre>
 
